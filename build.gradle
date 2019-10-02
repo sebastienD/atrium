@@ -287,9 +287,7 @@ apply from: 'gradle/scripts/gh-pages.gradle'
 
 configure(bundleSmokeTests) {
     def bundleUnderTest = it.name.substring(0, it.name.indexOf('-smoke-test'))
-    Project bundle = bundleUnderTest.endsWith("-jdk8")
-        ? project(":$bundleUnderTest")
-        : project(":$bundleUnderTest-jvm")
+    Project bundle = project(":$bundleUnderTest-jvm")
 
     description = "Represents a JDK >= 9 smoke test for $bundleUnderTest"
 
